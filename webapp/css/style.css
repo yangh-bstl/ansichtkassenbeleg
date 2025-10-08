@@ -1,0 +1,16 @@
+.appListCompact .sapMListTblCell {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.appListCompact .sapMListTblRow {
+  height: auto;
+}
+
+.appListCompact .sapMListTblRow .sapMText {
+  line-height: 1.2rem;
+}
+
+.appListCompact .sapMListTblCell:first-child {
+  padding-left: 0.5rem;
+}
