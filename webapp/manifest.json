@@ -108,7 +108,20 @@
       }
     },
     "resources": {
-      "css": []
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "kassenbeleg.ansicht.kassenbelegansicht.ext.controller.ListReportExt"
+          }
+        }
+      }
     },
     "routing": {
       "config": {},
@@ -131,6 +144,7 @@
           "name": "sap.suite.ui.generic.template.ListReport",
           "list": true,
           "settings": {
+            "initialLoad": true,
             "condensedTableLayout": true,
             "smartVariantManagement": true,
             "enableTableFilterInPageVariant": true,
