@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: kassenbeleg.ansicht.kassenbelegansicht
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://sap64093.bistum.limburg:8443/
+        app:
+          name: ZBL_UI_KSBLG_AS
+          description: Ansicht von Kassenbeleg
+          package: ZBL_FI_VIM_KASSENBELEG
+          transport: EALK914420
+        exclude:
+          - /test/

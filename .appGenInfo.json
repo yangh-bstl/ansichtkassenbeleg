@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Fri Sep 26 2025 12:48:35 GMT+0200 (Central European Summer Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://sap64093.bistum.limburg:8443/sap/opu/odata/sap/Z_BL_KASSENBELEG_SRV",
+    "appName": "kassenbelegansicht",
+    "appTitle": "Ansicht von Kassenebelg",
+    "appDescription": "Ansicht von Kassenebelg",
+    "appNamespace": "kassenbeleg.ansicht",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.108.31",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.18.1",
+    "template": "List Report Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "GetUsersBlgInfoSet"
+      }
+    ],
+    "launchText": "In order to launch the generated app, simply run the following from the generated app root folder:\n\n```\n    npm start\n```"
+  }
+}
