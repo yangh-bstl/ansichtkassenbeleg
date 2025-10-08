@@ -1,0 +1,38 @@
+[
+    {
+        "Email": "alice@example.com",
+        "RefBlgNum": "RB-2025-000001",
+        "Status": "02",
+        "BlgNum": "000012345678",
+        "DocType": "RECEIPT",
+        "LastName": "Muster",
+        "FirstName": "Alice",
+        "PartnerNum": "0000123456",
+        "BelegDatum": "/Date(1735689600000)/",
+        "Betrag": "123,45",
+        "IBAN": "DE44500105175407324931",
+        "Swift": "DEUTDEFFXXX",
+        "Street": "Hauptstraße 1",
+        "PostCode": "60311",
+        "City": "Frankfurt",
+        "Kostenstelle": "KST100100"
+    },
+    {
+        "Email": "alice@example.com",
+        "RefBlgNum": "RB-2025-000002",
+        "Status": "03",
+        "BlgNum": "000012345679",
+        "DocType": "INVOICE",
+        "LastName": "Muster",
+        "FirstName": "Alice",
+        "PartnerNum": "0000123456",
+        "BelegDatum": "/Date(1736208000000)/",
+        "Betrag": "89,90",
+        "IBAN": "DE44500105175407324931",
+        "Swift": "DEUTDEFFXXX",
+        "Street": "Hauptstraße 1",
+        "PostCode": "60311",
+        "City": "Frankfurt",
+        "Kostenstelle": "KST100100"
+    }
+]

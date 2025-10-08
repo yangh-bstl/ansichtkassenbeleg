@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
@@ -7,44 +8,64 @@
   </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
-
-      <!-- 列表列：UI.LineItem -->
       <Annotations Target="Z_BL_KASSENBELEG_SRV.GetUsersBlgInfo">
         <Annotation Term="UI.LineItem">
           <Collection>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="SmtpAddr"/>
-              <PropertyValue Property="Label" String="E-Mail"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="NameFirst"/>
-              <PropertyValue Property="Label" String="Vorname"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="NameLast"/>
-              <PropertyValue Property="Label" String="Nachname"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Belegdatum"/>
-              <PropertyValue Property="Label" String="Belegdatum"/>
-            </Record>
-            <Record Type="UI.DataField">
-              <PropertyValue Property="Value" Path="Betrag"/>
-              <PropertyValue Property="Label" String="Betrag"/>
-            </Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Email"/><PropertyValue Property="Label" String="E-Mail"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="RefBlgNum"/><PropertyValue Property="Label" String="Referenz"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Status"/><PropertyValue Property="Label" String="Status"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="BlgNum"/><PropertyValue Property="Label" String="Beleg-ID"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="DocType"/><PropertyValue Property="Label" String="Belegart"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="LastName"/><PropertyValue Property="Label" String="Nachname"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="FirstName"/><PropertyValue Property="Label" String="Vorname"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="PartnerNum"/><PropertyValue Property="Label" String="Geschäftspartner"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="BelegDatum"/><PropertyValue Property="Label" String="Belegdatum"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Betrag"/><PropertyValue Property="Label" String="Betrag"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="IBAN"/><PropertyValue Property="Label" String="IBAN"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Swift"/><PropertyValue Property="Label" String="SWIFT/BIC"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Street"/><PropertyValue Property="Label" String="Straße"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="PostCode"/><PropertyValue Property="Label" String="PLZ"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="City"/><PropertyValue Property="Label" String="Ort"/></Record>
+            <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Kostenstelle"/><PropertyValue Property="Label" String="Kostenstelle"/></Record>
           </Collection>
         </Annotation>
-
-        <!-- 过滤条件：UI.SelectionFields -->
+        <Annotation Term="UI.PresentationVariant">
+          <Record>
+            <PropertyValue Property="SortOrder">
+              <Collection>
+                <Record Type="UI.SortOrderType">
+                  <PropertyValue Property="Property" PropertyPath="BelegDatum"/>
+                  <PropertyValue Property="Descending" Bool="true"/>
+                </Record>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="GroupBy">
+              <Collection><PropertyPath>Status</PropertyPath></Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
         <Annotation Term="UI.SelectionFields">
           <Collection>
-            <PropertyPath>SmtpAddr</PropertyPath>
-            <PropertyPath>NameLast</PropertyPath>
-            <PropertyPath>Belegdatum</PropertyPath>
+            <PropertyPath>Email</PropertyPath>
+            <PropertyPath>LastName</PropertyPath>
+            <PropertyPath>FirstName</PropertyPath>
+            <PropertyPath>BelegDatum</PropertyPath>
+            <PropertyPath>Status</PropertyPath>
           </Collection>
         </Annotation>
+        <Annotation Term="UI.FieldGroup" Qualifier="Header">
+          <Record>
+            <PropertyValue Property="Data">
+              <Collection>
+                <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Email"/></Record>
+                <Record Type="UI.DataField"><PropertyValue Property="Value" Path="PartnerNum"/></Record>
+                <Record Type="UI.DataField"><PropertyValue Property="Value" Path="BelegDatum"/></Record>
+                <Record Type="UI.DataField"><PropertyValue Property="Value" Path="Betrag"/></Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
       </Annotations>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

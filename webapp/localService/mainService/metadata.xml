@@ -1,97 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
-    <edmx:DataServices m:DataServiceVersion="2.0">
-        <Schema Namespace="Z_BL_KASSENBELEG_SRV" xml:lang="de" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-            <EntityType Name="File" m:HasStream="true" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Filename"/>
-                </Key>
-                <Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="257" sap:unicode="false" sap:label="FILENAME" sap:updatable="false"/>
-                <Property Name="Mimetype" Type="Edm.String" MaxLength="128" sap:unicode="false" sap:label="Mimetype" sap:updatable="false"/>
-                <Property Name="Content" Type="Edm.Binary" sap:unicode="false" sap:label="binärer String" sap:updatable="false"/>
-                <NavigationProperty Name="UserSubmission" Relationship="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" FromRole="ToRole_UserSubmissionToFile" ToRole="FromRole_UserSubmissionToFile"/>
-            </EntityType>
-            <EntityType Name="KstVH" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Kostl"/>
-                </Key>
-                <Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Kostenstelle" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Bezeichnung" sap:creatable="false" sap:updatable="false"/>
-            </EntityType>
-            <EntityType Name="GetUserInfo" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="SmtpAddr"/>
-                </Key>
-                <Property Name="SmtpAddr" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail-Adresse" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NameLast" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Nachname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NameFirst" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Vorname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="GeschPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Persnumber" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Personennummer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Swift" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="SWIFT/BIC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Addrnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Adressnummer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Straße" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postleitzahl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ort" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="UserSubmission" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="SmtpAddr"/>
-                </Key>
-                <Property Name="Belegdatum" Type="Edm.DateTimeOffset" Precision="0" sap:unicode="false" sap:label="Belegdatum" sap:updatable="false"/>
-                <Property Name="SmtpAddr" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail-Adresse" sap:updatable="false"/>
-                <Property Name="NameLast" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Nachname" sap:updatable="false"/>
-                <Property Name="NameFirst" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Vorname" sap:updatable="false"/>
-                <Property Name="Partner" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Partner" sap:updatable="false"/>
-                <Property Name="Iban" Type="Edm.String" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:updatable="false"/>
-                <Property Name="Betrag" Type="Edm.String" MaxLength="19" sap:unicode="false" sap:label="Betrag" sap:updatable="false"/>
-                <Property Name="Swift" Type="Edm.String" MaxLength="11" sap:unicode="false" sap:label="SWIFT/BIC" sap:updatable="false"/>
-                <Property Name="Zweck" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Text" sap:updatable="false"/>
-                <Property Name="Street" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Straße" sap:updatable="false"/>
-                <Property Name="PostCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Postleitzahl" sap:updatable="false"/>
-                <Property Name="City" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Ort" sap:updatable="false"/>
-                <Property Name="Kostl" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Kostenstelle" sap:updatable="false"/>
-                <NavigationProperty Name="ToFiles" Relationship="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" FromRole="FromRole_UserSubmissionToFile" ToRole="ToRole_UserSubmissionToFile"/>
-            </EntityType>
-            <EntityType Name="Iban" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Persnumber"/>
-                </Key>
-                <Property Name="Persnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Personennummer" sap:creatable="false" sap:updatable="false"/>
-                <Property Name="IbanKK" Type="Edm.String" Nullable="false" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:creatable="false" sap:updatable="false"/>
-            </EntityType>
-            <EntityType Name="GetUsersBlgInfo" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="temp"/>
-                </Key>
-                <Property Name="temp" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Personennummer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <Association Name="UserSubmissionToFile" sap:content-version="1">
-                <End Type="Z_BL_KASSENBELEG_SRV.UserSubmission" Multiplicity="1" Role="FromRole_UserSubmissionToFile"/>
-                <End Type="Z_BL_KASSENBELEG_SRV.File" Multiplicity="*" Role="ToRole_UserSubmissionToFile"/>
-                <ReferentialConstraint>
-                    <Principal Role="FromRole_UserSubmissionToFile">
-                        <PropertyRef Name="SmtpAddr"/>
-                    </Principal>
-                    <Dependent Role="ToRole_UserSubmissionToFile">
-                        <PropertyRef Name="Filename"/>
-                    </Dependent>
-                </ReferentialConstraint>
-            </Association>
-            <EntityContainer Name="Z_BL_KASSENBELEG_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="FileSet" EntityType="Z_BL_KASSENBELEG_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="KstVHSet" EntityType="Z_BL_KASSENBELEG_SRV.KstVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="GetUserInfoSet" EntityType="Z_BL_KASSENBELEG_SRV.GetUserInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="UserSubmissionSet" EntityType="Z_BL_KASSENBELEG_SRV.UserSubmission" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
-                <EntitySet Name="IbanSet" EntityType="Z_BL_KASSENBELEG_SRV.Iban" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="GetUsersBlgInfoSet" EntityType="Z_BL_KASSENBELEG_SRV.GetUsersBlgInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
-                <AssociationSet Name="UserSubmissionToFileSet" Association="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
-                    <End EntitySet="UserSubmissionSet" Role="FromRole_UserSubmissionToFile"/>
-                    <End EntitySet="FileSet" Role="ToRole_UserSubmissionToFile"/>
-                </AssociationSet>
-            </EntityContainer>
-            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
-            <atom:link rel="self" href="https://sap64093.bistum.limburg:8443/sap/opu/odata/sap/Z_BL_KASSENBELEG_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-            <atom:link rel="latest-version" href="https://sap64093.bistum.limburg:8443/sap/opu/odata/sap/Z_BL_KASSENBELEG_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
-        </Schema>
-    </edmx:DataServices>
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_BL_KASSENBELEG_SRV" xml:lang="de" sap:schema-version="1">
+<EntityType Name="File" m:HasStream="true" sap:content-version="1">
+<Key>
+<PropertyRef Name="Filename"/>
+</Key>
+<Property Name="Filename" Type="Edm.String" Nullable="false" MaxLength="257" sap:unicode="false" sap:label="FILENAME" sap:updatable="false"/>
+<Property Name="Mimetype" Type="Edm.String" MaxLength="128" sap:unicode="false" sap:label="Mimetype" sap:updatable="false"/>
+<Property Name="Content" Type="Edm.Binary" sap:unicode="false" sap:label="binärer String" sap:updatable="false"/>
+<NavigationProperty Name="UserSubmission" Relationship="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" FromRole="ToRole_UserSubmissionToFile" ToRole="FromRole_UserSubmissionToFile"/>
+</EntityType>
+<EntityType Name="KstVH" sap:content-version="1">
+<Key>
+<PropertyRef Name="Kostl"/>
+</Key>
+<Property Name="Kostl" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Kostenstelle" sap:creatable="false" sap:updatable="false"/>
+<Property Name="Ktext" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Bezeichnung" sap:creatable="false" sap:updatable="false"/>
+</EntityType>
+<EntityType Name="GetUserInfo" sap:content-version="1">
+<Key>
+<PropertyRef Name="SmtpAddr"/>
+</Key>
+<Property Name="SmtpAddr" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail-Adresse" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="NameLast" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Nachname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="NameFirst" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Vorname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="GeschPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Persnumber" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Personennummer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Swift" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="SWIFT/BIC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Addrnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Adressnummer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Straße" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postleitzahl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ort" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityType Name="UserSubmission" sap:content-version="1">
+<Key>
+<PropertyRef Name="SmtpAddr"/>
+</Key>
+<Property Name="Belegdatum" Type="Edm.DateTimeOffset" Precision="0" sap:unicode="false" sap:label="Belegdatum" sap:updatable="false"/>
+<Property Name="SmtpAddr" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail-Adresse" sap:updatable="false"/>
+<Property Name="NameLast" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Nachname" sap:updatable="false"/>
+<Property Name="NameFirst" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Vorname" sap:updatable="false"/>
+<Property Name="Partner" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Partner" sap:updatable="false"/>
+<Property Name="Iban" Type="Edm.String" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:updatable="false"/>
+<Property Name="Betrag" Type="Edm.String" MaxLength="19" sap:unicode="false" sap:label="Betrag" sap:updatable="false"/>
+<Property Name="Swift" Type="Edm.String" MaxLength="11" sap:unicode="false" sap:label="SWIFT/BIC" sap:updatable="false"/>
+<Property Name="Zweck" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Text" sap:updatable="false"/>
+<Property Name="Street" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Straße" sap:updatable="false"/>
+<Property Name="PostCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Postleitzahl" sap:updatable="false"/>
+<Property Name="City" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Ort" sap:updatable="false"/>
+<Property Name="Kostl" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Kostenstelle" sap:updatable="false"/>
+<NavigationProperty Name="ToFiles" Relationship="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" FromRole="FromRole_UserSubmissionToFile" ToRole="ToRole_UserSubmissionToFile"/>
+</EntityType>
+<EntityType Name="Iban" sap:content-version="1">
+<Key>
+<PropertyRef Name="Persnumber"/>
+</Key>
+<Property Name="Persnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Personennummer" sap:creatable="false" sap:updatable="false"/>
+<Property Name="IbanKK" Type="Edm.String" Nullable="false" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:creatable="false" sap:updatable="false"/>
+</EntityType>
+<EntityType Name="GetUsersBlgInfo" sap:content-version="1">
+<Key>
+<PropertyRef Name="Email"/>
+</Key>
+<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail-Adresse" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="RefBlgNum" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Referenz" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Belegstatus" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="BlgNum" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Beleg-ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="DocType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BV Belegart" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Nachname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Vorname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="PartnerNum" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="GeschPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="BelegDatum" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Zeitstempel" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Betrag" Type="Edm.String" Nullable="false" MaxLength="19" sap:unicode="false" sap:label="Betrag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="IBAN" Type="Edm.String" Nullable="false" MaxLength="34" sap:unicode="false" sap:label="IBAN" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Swift" Type="Edm.String" Nullable="false" MaxLength="11" sap:unicode="false" sap:label="SWIFT/BIC" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Straße" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="PostCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postleitzahl" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Ort" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Kostenstelle" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Kostenstelle" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<Association Name="UserSubmissionToFile" sap:content-version="1">
+<End Type="Z_BL_KASSENBELEG_SRV.UserSubmission" Multiplicity="1" Role="FromRole_UserSubmissionToFile"/>
+<End Type="Z_BL_KASSENBELEG_SRV.File" Multiplicity="*" Role="ToRole_UserSubmissionToFile"/>
+<ReferentialConstraint>
+<Principal Role="FromRole_UserSubmissionToFile">
+<PropertyRef Name="SmtpAddr"/>
+</Principal>
+<Dependent Role="ToRole_UserSubmissionToFile">
+<PropertyRef Name="Filename"/>
+</Dependent>
+</ReferentialConstraint>
+</Association>
+<EntityContainer Name="Z_BL_KASSENBELEG_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="FileSet" EntityType="Z_BL_KASSENBELEG_SRV.File" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="KstVHSet" EntityType="Z_BL_KASSENBELEG_SRV.KstVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+<EntitySet Name="GetUserInfoSet" EntityType="Z_BL_KASSENBELEG_SRV.GetUserInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="UserSubmissionSet" EntityType="Z_BL_KASSENBELEG_SRV.UserSubmission" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="IbanSet" EntityType="Z_BL_KASSENBELEG_SRV.Iban" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+<EntitySet Name="GetUsersBlgInfoSet" EntityType="Z_BL_KASSENBELEG_SRV.GetUsersBlgInfo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+<AssociationSet Name="UserSubmissionToFileSet" Association="Z_BL_KASSENBELEG_SRV.UserSubmissionToFile" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+<End EntitySet="UserSubmissionSet" Role="FromRole_UserSubmissionToFile"/>
+<End EntitySet="FileSet" Role="ToRole_UserSubmissionToFile"/>
+</AssociationSet>
+</EntityContainer>
+<Annotation xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://sap64093.bistum.limburg:8011/sap/opu/odata/sap/Z_BL_KASSENBELEG_SRV/$metadata"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://sap64093.bistum.limburg:8011/sap/opu/odata/sap/Z_BL_KASSENBELEG_SRV/$metadata"/>
+</Schema>
+</edmx:DataServices>
 </edmx:Edmx>
